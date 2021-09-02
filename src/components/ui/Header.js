@@ -27,6 +27,7 @@ function Header() {
           setMenuToggle(!menuToggle);
         }}
       />
+
       <StyledNavigation className={`navigation ${menuToggle ? "active" : ""}`}>
         <li>
           <NavLink
@@ -112,11 +113,6 @@ const StyledHeader = styled.header`
 
       &.active {
         transform: translateX(0px);
-      }
-
-      .menu-icon {
-        background: red;
-        width: 20px;
       }
     }
   }
