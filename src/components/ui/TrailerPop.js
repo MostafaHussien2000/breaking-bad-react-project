@@ -46,13 +46,14 @@ const StyledPop = styled.section`
   background: #00000097;
   left: 0px;
   top: 0px;
-  z-index: 700;
+  z-index: 8000;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   backdrop-filter: blur(8px);
-  pointer-events: none;
+  pointer-events: fill;
+
   * {
     pointer-events: all;
   }

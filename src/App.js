@@ -6,7 +6,6 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 /*React Components
 =========================================*/
-import Header from "./components/ui/Header";
 import LandingPage from "./pages/LandingPage";
 import CharactersPage from "./pages/CharactersPage";
 import EpisodesPage from "./pages/EpisodesPage";
@@ -16,7 +15,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
         <Switch>
           <Route path="/" exact>
             <LandingPage />
