@@ -22,7 +22,6 @@ function Header() {
   });
 
   useEffect(() => {}, [menuToggle]);
-  useEffect(() => {}, [window.innerWidth]);
 
   return (
     <StyledHeader>

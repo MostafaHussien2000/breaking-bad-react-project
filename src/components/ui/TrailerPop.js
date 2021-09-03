@@ -19,13 +19,19 @@ function TrailerPop({ setTrailerShown }) {
       <StyledPop>
         <IoCloseOutline
           size="30px"
-          style={{ margin: 20, cursor: "pointer" }}
+          style={{ margin: 20, cursor: "pointer", width: "100%" }}
           onClick={() => {
             setTrailerShown(false);
           }}
         />
         <h1>Breaking Bad Trailer</h1>
-        <video src="https://youtu.be/HhesaQXLuRY"></video>
+        <StyledIFrame
+          src="https://www.youtube.com/embed/1JLUn2DFW4w"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></StyledIFrame>
       </StyledPop>
     </motion.div>
   );
@@ -43,15 +49,28 @@ const StyledPop = styled.section`
   z-index: 700;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   backdrop-filter: blur(8px);
-  padding: 50px;
-
+  pointer-events: none;
+  * {
+    pointer-events: all;
+  }
   h1 {
     text-align: center;
     width: 100%;
     font-weight: 800;
     letter-spacing: 1px;
   }
+`;
+
+const StyledIFrame = styled.iframe`
+  width: 90%;
+  max-width: 800px;
+  min-width: 320px;
+  aspect-ratio: 1.85/1;
+  border: none;
+  height: auto;
+  display: block;
+  margin: auto;
 `;
