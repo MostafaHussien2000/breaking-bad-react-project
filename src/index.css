@@ -34,10 +34,10 @@ code {
 }
 
 body::-webkit-scrollbar {
-  width: 7px;
+  width: 5px;
   appearance: none;
   background: rgb(27, 27, 27);
-  height: 7px;
+  height: 5px;
 }
 
 body::-webkit-scrollbar-thumb {
