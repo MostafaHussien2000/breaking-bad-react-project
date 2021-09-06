@@ -1,31 +1,32 @@
+import { motion } from "framer-motion";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function CharacterCard({
-  setShowData,
-  setRequestedChar,
-  personData,
-  name,
-  img,
-}) {
+function CharacterCard({ setRequestedChar, personData, name, img, id }) {
+  const stringPathId = id.toString();
+
   return (
-    <StyledCard
-      onClick={() => {
-        setRequestedChar(personData);
-        setShowData(true);
-      }}
-    >
-      <div className="img-wrapper">
-        <img src={img} alt={`${name} pic.`} />
-      </div>
-      <p>{name}</p>
-    </StyledCard>
+    <Link to={`/characters/${id}`}>
+      <StyledCard
+        layoutId={stringPathId}
+        onClick={() => {
+          setRequestedChar(personData);
+          console.log(typeof stringPathId);
+        }}
+      >
+        <div className="img-wrapper">
+          <img src={img} alt={`${name} pic.`} />
+        </div>
+        <p>{name}</p>
+      </StyledCard>
+    </Link>
   );
 }
 
 export default CharacterCard;
 
-const StyledCard = styled.div`
+const StyledCard = styled(motion.div)`
   width: 120px;
   height: 170px;
   background: #afafaf;

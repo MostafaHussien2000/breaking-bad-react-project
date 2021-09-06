@@ -32,6 +32,7 @@ const StyledWrapper = styled.main`
   background-position: 70%;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
   background-image: url(${wallpaper});
 `;
 

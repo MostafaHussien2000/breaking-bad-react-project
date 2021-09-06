@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/ui/Header";
 
 import styled from "styled-components";
@@ -6,27 +6,32 @@ import styled from "styled-components";
 import CharactersGrid from "../components/cards/CharactersGrid";
 import CharacterData from "../components/cards/CharacterData";
 
+import { useLocation } from "react-router-dom";
+
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+
 function CharactersPage() {
   const [requestedChar, setRequestedChar] = useState(null);
 
-  const [showData, setShowData] = useState(false);
+  const location = useLocation();
+  const path_id = location.pathname.split("/")[2];
+  console.log(path_id);
+
+  useEffect(() => {}, [location, path_id]);
 
   return (
     <StyledWrapper>
       <Header />
-      <StyledContainer>
-        <CharactersGrid
-          setShowData={setShowData}
-          setRequestedChar={setRequestedChar}
-        />
-      </StyledContainer>
-      {requestedChar && (
-        <CharacterData
-          setShowData={setShowData}
-          showData={showData}
-          requestedChar={requestedChar}
-        />
-      )}
+      <AnimateSharedLayout>
+        <AnimatePresence>
+          {requestedChar && path_id && (
+            <CharacterData pathId={path_id} requestedChar={requestedChar} />
+          )}
+        </AnimatePresence>
+        <StyledContainer>
+          <CharactersGrid setRequestedChar={setRequestedChar} />
+        </StyledContainer>
+      </AnimateSharedLayout>
     </StyledWrapper>
   );
 }

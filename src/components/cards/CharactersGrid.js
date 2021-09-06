@@ -42,7 +42,7 @@ function CharactersGrid({ setShowData, setRequestedChar }) {
               name={person.name}
               img={person.img}
               setRequestedChar={setRequestedChar}
-              setShowData={setShowData}
+              id={person.char_id}
             />
           ))}
       </StyledCharactersWrapper>
@@ -54,7 +54,7 @@ export default CharactersGrid;
 
 const StyledCharactersWrapper = styled.div`
   padding: 50px 0px;
-  --auto-grid-min-size: 10rem;
+  --auto-grid-min-size: 5rem;
   display: grid;
   grid-template-columns: repeat(
     auto-fill,

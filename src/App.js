@@ -19,7 +19,7 @@ function App() {
           <Route path="/" exact>
             <LandingPage />
           </Route>
-          <Route path="/characters" exact>
+          <Route path={["/characters/:id", "/characters"]} exact>
             <CharactersPage />
           </Route>
           <Route path="/episodes" exact>
