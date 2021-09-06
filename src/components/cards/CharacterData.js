@@ -25,7 +25,9 @@ function CharacterData({ pathId, requestedChar }) {
         </Link>
 
         <h1>{requestedChar.name}</h1>
-        <span>{`Also knows as " ${requestedChar.nickname} "`}</span>
+        {requestedChar.name !== requestedChar.nickname && (
+          <span>{`Also knows as " ${requestedChar.nickname} "`}</span>
+        )}
         <p>{requestedChar.occupation.join(" - ")}</p>
         <p>Played by : {requestedChar.portrayed}</p>
         <img src={requestedChar.img} alt="" />

@@ -16,7 +16,7 @@ function CharacterCard({ setRequestedChar, personData, name, img, id }) {
         }}
       >
         <div className="img-wrapper">
-          <img src={img} alt={`${name} pic.`} />
+          <img src={img} alt={`${name}`} />
         </div>
         <p>{name}</p>
       </StyledCard>
