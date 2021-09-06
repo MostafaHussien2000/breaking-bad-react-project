@@ -26,15 +26,9 @@ function CharactersPage() {
     <StyledWrapper>
       <Header />
       <center style={{ textAlign: "center", margin: "20px 0px" }}>
-        <h1
-          onClick={() => {
-            console.log("Clicked");
-          }}
-        >
-          All Characters
-        </h1>
+        <h1>All Characters</h1>
       </center>
-      <SearchCharacter />
+      <SearchCharacter searchText={searchText} setSearchText={setSearchText} />
       <AnimateSharedLayout>
         <AnimatePresence>
           {requestedChar && path_id && (

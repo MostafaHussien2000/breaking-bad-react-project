@@ -3,7 +3,7 @@ import { useEffect, useState } from "react/cjs/react.development";
 import styled from "styled-components";
 import CharacterCard from "./CharacterCard";
 
-function CharactersGrid({ setShowData, setRequestedChar }) {
+function CharactersGrid({ searchText, setRequestedChar }) {
   const [allCharacters, setAllCharacters] = useState(null);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +11,7 @@ function CharactersGrid({ setShowData, setRequestedChar }) {
   useEffect(() => {
     let isMounted = true;
 
-    fetch("https://breakingbadapi.com/api/characters")
+    fetch(`https://breakingbadapi.com/api/characters?name=${searchText}`)
       .then((res) => {
         return res.json();
       })
@@ -25,7 +25,7 @@ function CharactersGrid({ setShowData, setRequestedChar }) {
     return () => {
       isMounted = false;
     };
-  });
+  }, [searchText]);
 
   return (
     <>
