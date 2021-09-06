@@ -1,10 +1,18 @@
 import React from "react";
+import { useState } from "react/cjs/react.development";
 import styled from "styled-components";
 
-function SearchCharacter() {
+function SearchCharacter({ searchText, setSearchText }) {
   return (
     <StyledFrom>
-      <StyledInput type="text" placeholder="Type character name ..." />
+      <StyledInput
+        type="text"
+        value={searchText}
+        onChange={(e) => {
+          setSearchText(e.target.value);
+        }}
+        placeholder="Type character name ..."
+      />
     </StyledFrom>
   );
 }

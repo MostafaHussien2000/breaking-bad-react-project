@@ -20,6 +20,8 @@ function CharactersPage() {
 
   useEffect(() => {}, [location, path_id]);
 
+  const [searchText, setSearchText] = useState("");
+
   return (
     <StyledWrapper>
       <Header />
@@ -40,7 +42,11 @@ function CharactersPage() {
           )}
         </AnimatePresence>
         <StyledContainer>
-          <CharactersGrid setRequestedChar={setRequestedChar} />
+          <CharactersGrid
+            searchText={searchText}
+            setSearchText={setSearchText}
+            setRequestedChar={setRequestedChar}
+          />
         </StyledContainer>
       </AnimateSharedLayout>
     </StyledWrapper>
