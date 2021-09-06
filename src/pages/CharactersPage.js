@@ -9,6 +9,7 @@ import CharacterData from "../components/cards/CharacterData";
 import { useLocation } from "react-router-dom";
 
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import SearchCharacter from "../components/ui/SearchCharacter";
 
 function CharactersPage() {
   const [requestedChar, setRequestedChar] = useState(null);
@@ -22,6 +23,16 @@ function CharactersPage() {
   return (
     <StyledWrapper>
       <Header />
+      <center style={{ textAlign: "center", margin: "20px 0px" }}>
+        <h1
+          onClick={() => {
+            console.log("Clicked");
+          }}
+        >
+          All Characters
+        </h1>
+      </center>
+      <SearchCharacter />
       <AnimateSharedLayout>
         <AnimatePresence>
           {requestedChar && path_id && (

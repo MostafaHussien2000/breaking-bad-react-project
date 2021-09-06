@@ -6,6 +6,8 @@ import CharacterCard from "./CharacterCard";
 function CharactersGrid({ setShowData, setRequestedChar }) {
   const [allCharacters, setAllCharacters] = useState(null);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     let isMounted = true;
 
@@ -14,7 +16,10 @@ function CharactersGrid({ setShowData, setRequestedChar }) {
         return res.json();
       })
       .then((data) => {
-        if (isMounted) setAllCharacters(data);
+        if (isMounted) {
+          setAllCharacters(data);
+          setIsLoading(false);
+        }
       });
 
     return () => {
@@ -24,16 +29,9 @@ function CharactersGrid({ setShowData, setRequestedChar }) {
 
   return (
     <>
-      <center style={{ textAlign: "center", margin: "20px 0px" }}>
-        <h1
-          onClick={() => {
-            console.log("Clicked");
-          }}
-        >
-          All Characters
-        </h1>
-      </center>
       <StyledCharactersWrapper>
+        {isLoading && <span>Loading data ...</span>}
+
         {allCharacters &&
           allCharacters.map((person) => (
             <CharacterCard
