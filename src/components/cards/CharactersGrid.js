@@ -3,10 +3,15 @@ import { useEffect, useState } from "react/cjs/react.development";
 import styled from "styled-components";
 import CharacterCard from "./CharacterCard";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 function CharactersGrid({ searchText, setRequestedChar }) {
   const [allCharacters, setAllCharacters] = useState(null);
 
   const [isLoading, setIsLoading] = useState(true);
+
+  AOS.init({ duration: 200 });
 
   useEffect(() => {
     let isMounted = true;
@@ -35,6 +40,15 @@ function CharactersGrid({ searchText, setRequestedChar }) {
         {allCharacters &&
           allCharacters.map((person) => (
             <CharacterCard
+              data-aos="fade-up"
+              data-aos-offset="200"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+              data-aos-mirror="true"
+              data-aos-once="false"
+              data-aos-anchor-placement="top-center"
+              //------------------------------------------//
               personData={person}
               key={person.char_id}
               name={person.name}
