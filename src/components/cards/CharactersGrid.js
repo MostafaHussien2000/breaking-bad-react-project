@@ -30,7 +30,7 @@ function CharactersGrid({ searchText, setRequestedChar }) {
   return (
     <>
       <StyledCharactersWrapper>
-        {isLoading && <span>Loading data ...</span>}
+        {isLoading && <p className="loading-indicator">Loading data ...</p>}
 
         {allCharacters &&
           allCharacters.map((person) => (
@@ -60,4 +60,10 @@ const StyledCharactersWrapper = styled.div`
   );
   align-self: center;
   gap: 70px;
+  width: 100%;
+
+  .loading-indicator {
+    width: 100%;
+    text-align: center;
+  }
 `;

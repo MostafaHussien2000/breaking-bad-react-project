@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/ui/Header";
 
+import wallpaper from "../img/CharactersPageWallpaper.png";
+
 import styled from "styled-components";
 
 import CharactersGrid from "../components/cards/CharactersGrid";
@@ -56,19 +58,10 @@ const StyledContainer = styled.main`
 
 const StyledWrapper = styled.main`
   min-height: 100vh;
-
-  background: rgb(1, 7, 3);
-  background: linear-gradient(
-    0deg,
-    rgba(1, 7, 3, 1) 95%,
-    rgba(11, 74, 34, 1) 100%
-  );
-`;
-
-/*
-background-position: 70%;
+  background-position: 70%;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
   background-image: url(${wallpaper});
-
-  */
+  background-attachment: fixed;
+`;

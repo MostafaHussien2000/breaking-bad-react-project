@@ -34,6 +34,7 @@ const StyledWrapper = styled.main`
   background-size: cover;
   overflow: hidden;
   background-image: url(${wallpaper});
+  background-attachment: fixed;
 `;
 
 const StyledContainer = styled.section`

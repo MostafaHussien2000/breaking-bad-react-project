@@ -8,7 +8,6 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 =========================================*/
 import LandingPage from "./pages/LandingPage";
 import CharactersPage from "./pages/CharactersPage";
-import EpisodesPage from "./pages/EpisodesPage";
 import QuotesPage from "./pages/QuotesPage";
 
 function App() {
@@ -21,9 +20,6 @@ function App() {
           </Route>
           <Route path={["/characters/:id", "/characters"]} exact>
             <CharactersPage />
-          </Route>
-          <Route path="/episodes" exact>
-            <EpisodesPage />
           </Route>
           <Route path="/quotes" exact>
             <QuotesPage />

@@ -87,18 +87,6 @@ function Header() {
             }}
             activeClassName="active-nav-link"
             exact
-            to="/episodes"
-          >
-            Episodes
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            onClick={() => {
-              setMenuToggle(!menuToggle);
-            }}
-            activeClassName="active-nav-link"
-            exact
             to="/quotes"
           >
             Quotes
