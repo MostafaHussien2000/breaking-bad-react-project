@@ -18,7 +18,6 @@ function CharacterCard({ setRequestedChar, personData, name, img, id }) {
           }}
           onClick={() => {
             setRequestedChar(personData);
-            console.log(typeof stringPathId);
           }}
         >
           <div className="img-wrapper">

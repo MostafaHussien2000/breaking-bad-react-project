@@ -24,7 +24,6 @@ function QuotesPage() {
         if (isMounted) {
           setQuote(data[0]);
           setIsLoading(false);
-          console.table(quote);
         }
       });
   }, [click]);
@@ -50,14 +49,7 @@ function QuotesPage() {
           onClick={(e) => {
             setClick(!click);
             setQuote([]);
-            console.table(e.target.classList);
           }}
-          // onMouseDown={(e) => {
-          //   e.target.classList.push("btn-clicked");
-          // }}
-          // onMouseUp={(e) => {
-          //   e.target.classList.pop();
-          // }}
         >
           Get Random Quote
         </StyledRandomQuoteButton>

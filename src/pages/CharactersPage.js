@@ -20,7 +20,6 @@ function CharactersPage() {
 
   const location = useLocation();
   const path_id = location.pathname.split("/")[2];
-  console.log(path_id);
 
   useEffect(() => {}, [location, path_id]);
 

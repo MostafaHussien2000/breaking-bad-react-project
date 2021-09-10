@@ -9,11 +9,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function CharacterData({ pathId, requestedChar }) {
-  useEffect(() => {
-    console.table(requestedChar);
-  }, [requestedChar]);
-
-  console.log(typeof pathId);
+  useEffect(() => {}, [requestedChar]);
 
   return (
     <PopShadow layoutId={`${pathId}-card`}>
