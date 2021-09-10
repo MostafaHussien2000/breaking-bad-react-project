@@ -12,8 +12,6 @@ import { motion } from "framer-motion";
 function LandingPage() {
   const [trailerShown, setTrailerShown] = useState(false);
 
-  console.log(wallpaper);
-
   useEffect(() => {}, [trailerShown]);
 
   return (

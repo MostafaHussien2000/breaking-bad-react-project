@@ -62,13 +62,13 @@ const PopShadow = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0px;
+  padding: 30px 0px;
 
   &::-webkit-scrollbar {
     width: 5px;
   }
   &::-webkit-scrollbar-thumb {
-    background: rgb(41, 124, 73);
+    background: rgb(16, 22, 18);
     border-radius: 20px;
   }
 `;
