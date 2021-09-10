@@ -75,7 +75,7 @@ function Header() {
             }}
             activeClassName="active-nav-link"
             exact
-            to="/characters"
+            to={"/characters"}
           >
             Characters
           </NavLink>
@@ -142,4 +142,8 @@ const StyledNavigation = styled.ul`
   justify-content: space-between;
   align-items: center;
   gap: 50px;
+
+  li {
+    padding: 3px 15px;
+  }
 `;

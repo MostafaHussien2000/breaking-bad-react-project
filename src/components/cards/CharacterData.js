@@ -16,21 +16,21 @@ function CharacterData({ pathId, requestedChar }) {
   console.log(typeof pathId);
 
   return (
-    <PopShadow>
-      <Pop layoutId={pathId}>
+    <PopShadow layoutId={`${pathId}-card`}>
+      <Pop>
         <Link to="/characters" style={{ color: "#ccc", pointerEvents: "all" }}>
           <span className="back-icon">
             <FiChevronLeft />
           </span>
         </Link>
 
-        <h1>{requestedChar.name}</h1>
+        <motion.h1 layoutId={`${pathId}-name`}>{requestedChar.name}</motion.h1>
         {requestedChar.name !== requestedChar.nickname && (
           <span>{`Also knows as " ${requestedChar.nickname} "`}</span>
         )}
         <p>{requestedChar.occupation.join(" - ")}</p>
         <p>Played by : {requestedChar.portrayed}</p>
-        <img src={requestedChar.img} alt="" />
+        <motion.img layoutId={`${pathId}-img`} src={requestedChar.img} alt="" />
         <h3>Was in action in seasons :</h3>
         {requestedChar.appearance.map((s) => (
           <span className="season" key={s}>
@@ -75,13 +75,14 @@ const PopShadow = styled(motion.div)`
 
 const Pop = styled(motion.section)`
   min-height: 90vh;
-  padding: 40px 20px;
+  padding: 40px 40px;
   border-radius: 20px;
   background: #fff;
   width: 90%;
   margin: auto;
   transition-delay: 0.2s;
   pointer-events: none;
+  max-width: 650px;
 
   h1 {
     color: #222;

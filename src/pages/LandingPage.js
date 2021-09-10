@@ -7,6 +7,8 @@ import styled from "styled-components";
 import TrailerPop from "../components/ui/TrailerPop";
 import Header from "../components/ui/Header";
 
+import { motion } from "framer-motion";
+
 function LandingPage() {
   const [trailerShown, setTrailerShown] = useState(false);
 
@@ -15,7 +17,18 @@ function LandingPage() {
   useEffect(() => {}, [trailerShown]);
 
   return (
-    <StyledWrapper style={{ backgroundImage: `url(${wallpaper})` }}>
+    <StyledWrapper
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 3,
+        },
+      }}
+      exit={{
+        opacity: 0,
+      }}
+    >
       <Header />
       <StyledContainer>
         {trailerShown && <TrailerPop setTrailerShown={setTrailerShown} />}
@@ -27,7 +40,7 @@ function LandingPage() {
 
 export default LandingPage;
 
-const StyledWrapper = styled.main`
+const StyledWrapper = styled(motion.main)`
   min-height: 100vh;
   background-position: 70%;
   background-repeat: no-repeat;

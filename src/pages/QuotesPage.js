@@ -4,6 +4,7 @@ import wallpaper from "../img/QuotesPageWallpaper.png";
 
 import Header from "../components/ui/Header";
 import QuoteCard from "../components/cards/QuoteCard";
+import { motion } from "framer-motion";
 
 function QuotesPage() {
   const [quote, setQuote] = useState(null);
@@ -29,15 +30,34 @@ function QuotesPage() {
   }, [click]);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 3,
+        },
+      }}
+      exit={{
+        opacity: 0,
+      }}
+    >
       <Header />
       <StyledContainer>
         <QuoteCard quote={quote} isLoading={isLoading} />
         <StyledRandomQuoteButton
-          onClick={() => {
+          className="randomBtn"
+          onClick={(e) => {
             setClick(!click);
             setQuote([]);
+            console.table(e.target.classList);
           }}
+          // onMouseDown={(e) => {
+          //   e.target.classList.push("btn-clicked");
+          // }}
+          // onMouseUp={(e) => {
+          //   e.target.classList.pop();
+          // }}
         >
           Get Random Quote
         </StyledRandomQuoteButton>
@@ -48,12 +68,12 @@ function QuotesPage() {
 
 export default QuotesPage;
 
-const StyledContainer = styled.main`
+const StyledContainer = styled.div`
   width: 85%;
   margin: auto;
 `;
 
-const StyledWrapper = styled.main`
+const StyledWrapper = styled(motion.main)`
   min-height: 100vh;
   background-position: 70%;
   background-repeat: no-repeat;
@@ -76,5 +96,9 @@ const StyledRandomQuoteButton = styled.button`
   &:hover {
     background: #17bf7f;
     border-color: #17bf7f;
+  }
+
+  .btn-clicked {
+    color: red;
   }
 `;

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react/cjs/react.development";
 import styled from "styled-components";
 import CharacterCard from "./CharacterCard";
 
+import { AnimatePresence } from "framer-motion";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -37,26 +39,19 @@ function CharactersGrid({ searchText, setRequestedChar }) {
       <StyledCharactersWrapper>
         {isLoading && <p className="loading-indicator">Loading data ...</p>}
 
-        {allCharacters &&
-          allCharacters.map((person) => (
-            <CharacterCard
-              data-aos="fade-up"
-              data-aos-offset="200"
-              data-aos-delay="50"
-              data-aos-duration="1000"
-              data-aos-easing="ease-in-out"
-              data-aos-mirror="true"
-              data-aos-once="false"
-              data-aos-anchor-placement="top-center"
-              //------------------------------------------//
-              personData={person}
-              key={person.char_id}
-              name={person.name}
-              img={person.img}
-              setRequestedChar={setRequestedChar}
-              id={person.char_id}
-            />
-          ))}
+        <AnimatePresence>
+          {allCharacters &&
+            allCharacters.map((person) => (
+              <CharacterCard
+                personData={person}
+                key={person.char_id}
+                name={person.name}
+                img={person.img}
+                setRequestedChar={setRequestedChar}
+                id={person.char_id}
+              />
+            ))}
+        </AnimatePresence>
       </StyledCharactersWrapper>
     </>
   );

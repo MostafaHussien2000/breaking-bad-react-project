@@ -1,25 +1,32 @@
-import { motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { motion, AnimatePresence } from "framer-motion";
 
 function CharacterCard({ setRequestedChar, personData, name, img, id }) {
-  const stringPathId = id.toString();
-
   return (
     <Link to={`/characters/${id}`}>
-      <StyledCard
-        layoutId={stringPathId}
-        onClick={() => {
-          setRequestedChar(personData);
-          console.log(typeof stringPathId);
-        }}
-      >
-        <div className="img-wrapper">
-          <img src={img} alt={`${name}`} />
-        </div>
-        <p>{name}</p>
-      </StyledCard>
+      <AnimatePresence>
+        <StyledCard
+          layoutId={`${id}-card`}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            transition: {
+              duration: 0.7,
+            },
+          }}
+          onClick={() => {
+            setRequestedChar(personData);
+            console.log(typeof stringPathId);
+          }}
+        >
+          <div className="img-wrapper">
+            <motion.img layoutId={`${id}-img`} src={img} alt={`${name}`} />
+          </div>
+          <motion.p layoutId={`${id}-name`}>{name}</motion.p>
+        </StyledCard>
+      </AnimatePresence>
     </Link>
   );
 }

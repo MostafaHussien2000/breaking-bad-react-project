@@ -13,6 +13,8 @@ import { useLocation } from "react-router-dom";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import SearchCharacter from "../components/ui/SearchCharacter";
 
+import { motion } from "framer-motion";
+
 function CharactersPage() {
   const [requestedChar, setRequestedChar] = useState(null);
 
@@ -25,16 +27,31 @@ function CharactersPage() {
   const [searchText, setSearchText] = useState("");
 
   return (
-    <StyledWrapper>
+    <StyledWrapper
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 3,
+        },
+      }}
+      exit={{
+        opacity: 0,
+      }}
+    >
       <Header />
       <center style={{ textAlign: "center", margin: "20px 0px" }}>
         <h1>All Characters</h1>
       </center>
       <SearchCharacter searchText={searchText} setSearchText={setSearchText} />
       <AnimateSharedLayout>
-        <AnimatePresence>
+        <AnimatePresence initial={false} exitBeforeEnter>
           {requestedChar && path_id && (
-            <CharacterData pathId={path_id} requestedChar={requestedChar} />
+            <CharacterData
+              layout
+              pathId={path_id}
+              requestedChar={requestedChar}
+            />
           )}
         </AnimatePresence>
         <StyledContainer>
@@ -51,12 +68,12 @@ function CharactersPage() {
 
 export default CharactersPage;
 
-const StyledContainer = styled.main`
+const StyledContainer = styled.div`
   width: 85%;
   margin: auto;
 `;
 
-const StyledWrapper = styled.main`
+const StyledWrapper = styled(motion.main)`
   min-height: 100vh;
   background-position: 70%;
   background-repeat: no-repeat;
@@ -64,4 +81,5 @@ const StyledWrapper = styled.main`
   overflow: hidden;
   background-image: url(${wallpaper});
   background-attachment: fixed;
+  transform-origin: 100%;
 `;

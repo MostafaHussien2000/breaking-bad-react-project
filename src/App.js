@@ -1,8 +1,12 @@
 import "./App.css";
 
-/*React Router Stuff
+/*React Router
 =========================================*/
 import { Switch, Route, BrowserRouter } from "react-router-dom";
+
+/*Framer Motion
+=========================================*/
+import { AnimatePresence } from "framer-motion";
 
 /*React Components
 =========================================*/
@@ -16,13 +20,19 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/" exact>
-            <LandingPage />
+            <AnimatePresence initial={false} exitBeforeEnter>
+              <LandingPage />
+            </AnimatePresence>
           </Route>
           <Route path={["/characters/:id", "/characters"]} exact>
-            <CharactersPage />
+            <AnimatePresence initial={false} exitBeforeEnter>
+              <CharactersPage />
+            </AnimatePresence>
           </Route>
           <Route path="/quotes" exact>
-            <QuotesPage />
+            <AnimatePresence initial={false} exitBeforeEnter>
+              <QuotesPage />
+            </AnimatePresence>
           </Route>
         </Switch>
       </div>
