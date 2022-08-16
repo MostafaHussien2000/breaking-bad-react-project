@@ -41,7 +41,7 @@ function CharactersGrid({ searchText, setRequestedChar }) {
 
         <AnimatePresence>
           {allCharacters &&
-            allCharacters.map((person) => (
+            allCharacters?.map((person) => (
               <CharacterCard
                 personData={person}
                 key={person.char_id}
