@@ -9,7 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function CharactersGrid({ searchText, setRequestedChar }) {
-  const [allCharacters, setAllCharacters] = useState(null);
+  const [allCharacters, setAllCharacters] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
 
