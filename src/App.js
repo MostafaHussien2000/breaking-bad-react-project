@@ -9,7 +9,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 /*React Components
-=========================================*/
+========================================*/
 import LandingPage from "./pages/LandingPage";
 import CharactersPage from "./pages/CharactersPage";
 import QuotesPage from "./pages/QuotesPage";
